@@ -1,0 +1,72 @@
+/* CSS for script instructions etc */
+/* V3 30/03/2015 */
+
+/* Reduce width for readability on wide screens */
+div#content { 
+max-width:800px;
+margin-left: auto ;
+margin-right: auto ;
+}
+
+/* General page style */
+body { 
+font-family:serif; 
+background-color:#fefefe;
+}
+
+H1, H2, H3 { font-family:sans-serif; }
+H1 { font-size:160%; margin:8px; color:Blue; }
+H2 { font-size:120%; margin:6px; }
+H3 { font-size:100%; margin:4px; }
+p, ol, ul  { margin:2px; }
+
+.changelog {
+font-family:sans-serif;
+font-size:60%; 
+margin-top: 15px;
+}
+
+.red { 
+color:red;
+}
+
+.button  {
+font-family:sans-serif;
+font-weight:bold;
+font-size:80%;
+text-decoration:none;
+border:1px outset #dddddd;
+padding:1px;
+vertical-align:1px;
+}
+
+.yellow-background {
+background-color:yellow;
+color:black;
+}
+
+.cyan-background {
+background-color:cyan;
+color:black;
+}
+
+.grey-background {
+background-color:gray;
+color:white;
+}
+
+.green-background {
+background-color:springgreen;
+color:black;
+}
+
+
+.left-col {
+    position: relative;
+    left: 0px;
+}
+
+.right-col {
+    position: absolute;
+    left: 50%;
+}
