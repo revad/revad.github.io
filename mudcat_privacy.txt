@@ -1,0 +1,12 @@
+Data Privacy Statement for Mudcat Browser Tools
+-----------------------------------------------
+
+This addon extracts from mudcat pages:
+
+1 The typed-in guest name of the latest post if posting as a guest. This is used to pre-fill the name next time. It does not extract the name of signed-in users.
+2 The thread number of posts viewed, and the latest post number in each. This is to highlight new posts and scroll to them.
+3 The text of the latest post. This is so that the text can be recovered with the 'Recover text' button. 
+
+This data is stored within the browser. No data is sent anywhere or shared with any other system.
+
+v1/24.7.19
