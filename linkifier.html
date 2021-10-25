@@ -1,0 +1,82 @@
+<html>
+<head>
+<title>Simple linkifier</title>
+
+<script>
+  function clearurl() {
+    document.getElementById('url').value = "" ;
+    document.getElementById('link').value = "" ;
+  }
+
+  function cleartext() {
+    document.getElementById('text').value = "" ;
+    document.getElementById('link').value = "" ;
+  }
+
+  function clearlink() {
+    document.getElementById('link').value = "" ;
+  }
+
+  function makelink() {
+    linktext = document.getElementById('text').value ; 
+    if (linktext == "") {
+      linktext = document.getElementById('url').value  ;
+    }  
+      
+    href = document.getElementById('url').value ;       
+    if (href.substring(0,4) != "http") {
+    	href = "http://" + href ;
+    }   
+    document.getElementById('link').value = '<a href="' + href + '">' + linktext + '</a>';
+  }
+
+  function testlink() {
+    if (document.getElementById('link').value != "") { 
+      window.open(href) ;
+    }     
+  }
+
+  function copy() {
+    if (document.getElementById('link').value != "") {
+      navigator.clipboard.writeText(document.getElementById('link').value).then(function() {
+    /* clipboard successfully set */
+        }, function() {
+    /* clipboard write failed */
+      console.log("Clipboard write failed: " + href ) ; 
+      });
+    }
+  }
+  
+</script>
+
+</head>
+<body>
+
+<label for="url">URL:</label>
+<input id="url" type="text" size="60">&nbsp;
+<button type="button" onclick=clearurl()>Clear</button>
+</br></br>
+
+<label for="text">Text:</label>
+<input id="text" type="text" size="60">&nbsp;
+<button type="button" onclick=cleartext()>Clear</button>
+</br></br>
+
+<button type="button" onclick=makelink()>Make link</button><br><br>
+
+<label for="link">Link:</label>
+<input id="link" type="text" size="60" readonly=true>&nbsp;
+<button type="button" onclick=clearlink()>Clear</button>
+<br><br>
+
+<button type="button" onclick=testlink()>Test</button>&nbsp;&nbsp;
+<button type="button" onclick=copy()>Copy to clipboard</button>
+
+</br></br>
+<p>If URL does not start <b>http</b> it will add <b>http://</b></p>
+
+</br></br></br></br>
+<p><small>v1 25.10.2021</small></p>
+
+</body>
+</html>
