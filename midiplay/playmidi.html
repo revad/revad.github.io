@@ -1,4 +1,5 @@
 <!DOCTYPE HTML>
+<!-- Based on https://github.com/gasman/jasmid  -->
 <html>
 	<head>
 	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -68,21 +69,34 @@
 			}
 		</script>
 
+<!-- The rest is by DaveRo -->
+
 <script>
-midiURL = document.URL.match(/\?URL=.*$/)
-if (midiURL == null){
-  alert("No URL specified")
-  }
-else {
-	play(midiURL[0].substr(5))
+
+  function fileExists(file_url){
+    var http = new XMLHttpRequest();
+    http.open('HEAD', file_url, false);
+    http.send();
+    return http.status != 404;
   }
 
-
+<!-- Plays the file specified with ?URL=....  -->
+  midiURL = document.URL.match(/\?URL=.*$/)
+  if (midiURL == null){
+    document.write("Error: No midi file URL specified") ;
+    }
+  else {
+    midiURL = midiURL[0].substr(5) ;
+    if (fileExists(midiURL)) {
+      document.write("Playing: " + midiURL);
+  	  play(midiURL) ;	
+    } else {
+      document.write("URL specified: " + midiURL + "<br>");
+    	document.write("Error: File does not exist or cannot be accessed") ;
+    }
+  }
 </script>
-
-	</head>
-	<body>
-
-
-	</body>
+</head>
+<body>
+</body>
 </html>
