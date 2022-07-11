@@ -85,18 +85,20 @@
   if (midiURL == null){
     document.write("Error: No midi file URL specified") ;
     }
+
   else {
     midiURL = midiURL[0].substr(5) ;
     if (fileExists(midiURL)) {
- 
       playButton = document.createElement("button") ;
-      playButton.id = "platbutton" ;
+      playButton.id = "playbutton" ;
       playButton.style.display = "block" ;
       playButton.textContent = "Click to play" ;
 <!-- Need a user interaction for some browsers  -->
       playButton.addEventListener("click", function (){  
-        document.write("Playing: " + midiURL);
-        play(midiURL) ;
+        play(midiURL) ;        
+        playButton.style.display = "none" ;
+        messageLine = document.getElementsByTagName("p")[0] ;
+        messageLine.textContent =  "Playing: " + midiURL ;      
       })
 <!-- Wait for the DOM to load before adding button  -->
       window.addEventListener('DOMContentLoaded', (e) => {
@@ -113,6 +115,7 @@
 </head>
 <body>
 </body>
-  <div id="content"></div>
-  <div>
+  <div id="content">
+  <p id="message"></p>
+  </div>
 </html>
