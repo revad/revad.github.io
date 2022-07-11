@@ -88,8 +88,22 @@
   else {
     midiURL = midiURL[0].substr(5) ;
     if (fileExists(midiURL)) {
-      document.write("Playing: " + midiURL);
-  	  play(midiURL) ;	
+ 
+      playButton = document.createElement("button") ;
+      playButton.id = "platbutton" ;
+      playButton.style.display = "block" ;
+      playButton.textContent = "Click to play" ;
+<!-- Need a user interaction for some browsers  -->
+      playButton.addEventListener("click", function (){  
+        document.write("Playing: " + midiURL);
+        play(midiURL) ;
+      })
+<!-- Wait for the DOM to load before adding button  -->
+      window.addEventListener('DOMContentLoaded', (e) => {
+        content = document.getElementsByTagName("div") ;
+        content[0].appendChild(playButton) ;
+      });      
+
     } else {
       document.write("URL specified: " + midiURL + "<br>");
     	document.write("Error: File does not exist or cannot be accessed") ;
@@ -99,4 +113,6 @@
 </head>
 <body>
 </body>
+  <div id="content"></div>
+  <div>
 </html>
