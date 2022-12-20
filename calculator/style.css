@@ -1,0 +1,143 @@
+﻿body
+{
+    font-family: 'Segoe UI', 'Helvetica', Arial, sans-serif;
+	background:#EAEAEA;
+}
+
+#calc {
+	width: 395px;
+	background: white;
+	padding: 40px;
+	margin: 20px auto 0;
+    -ms-touch-action: manipulation;
+}
+
+.appInfo {
+    width: 395px;
+    margin: 20px auto;
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    font-size:12px;
+}
+
+#display, #descriptionDisplay {
+	background: white;
+	color: #1869EC;
+}
+
+#display {
+    display: block;
+    height: 42pt;
+    line-height: 42pt;
+    cursor: none;
+    width: 395px;
+    font-family: 'Segoe UI Light', 'Segoe UI', 'Helvetica', Arial, sans-serif;
+    margin: 20px 0;
+    font-size: 42pt;
+    text-align: right;
+    padding: 0;
+    overflow: hidden;
+	border: 0;
+}
+
+#descriptionDisplay {
+    text-align: right;
+    height: 11pt;
+    line-height:11pt;
+    font-size:11pt;
+    width: 385px;
+    cursor: none;
+    font-family: 'Segoe UI', 'Helvetica', Arial, sans-serif;
+    padding: 0;
+    border: 0;
+}
+
+.fixFloat {
+	clear: both;
+}
+
+
+.dockLeft {
+    float: left;
+}
+
+#numpad {
+    width: 240px;
+}
+
+#operations {
+    width: 80px;
+}
+
+.dockRight {
+    float: left;
+    width: 75px;
+}
+
+.buttonBox {
+    display: inline-block;
+    margin: 0 5px 5px 0;
+}
+
+.buttonBox:last-child {
+    margin-right: 0;
+}
+
+button {
+    width: 67px;
+    height: 67px;
+    margin: 0;
+    padding: 0;
+	border: 4px solid #A0C4FF;
+	font-size: 20pt;
+	font-family: "Segoe UI Semilight", "Segoe UI", Helvetica, Arial, sans-serif;
+	background: #A0C4FF;
+	color: white;
+    box-sizing:content-box;
+}
+
+button:hover {
+    border-color: #C1D9FF;
+}
+
+#operations button {
+	font-family: "Segoe UI Light", Helvetica, Arial, sans-serif;	
+	font-size: 30pt;
+}
+
+#numpad button {
+	background: #518EF0;
+    border-color: #518EF0;    
+}
+
+#numpad button:hover {
+	border-color: #7FACF4;
+}
+
+button[data-value='0'] {
+    width: 147px;
+}
+
+button:active {
+    height:63px;
+    width: 63px;
+    margin:2px;
+}
+
+button[data-value='0']:active {
+    width: 143px;
+}
+
+#equalButton {
+	height: 147px;
+	background: #518EF0;
+    border-color: #518EF0;    
+	font-family: "Segoe UI", Helvetica, Arial, sans-serif;	
+}
+
+#equalButton:hover {
+    border-color: #7FACF4;
+}
+
+    #equalButton:active {
+        height: 143px;
+    }
