@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Simple linkifier</title>
+  <title>Simple linkifier</title>
+
+  <style>
+    .row {
+      white-space: nowrap;
+    }
+  </style>
 
 <script>
   function clearurl() {
@@ -53,22 +59,28 @@
 </head>
 <body>
 
-<label for="url">URL:</label>
-<input id="url" type="text" size="60">&nbsp;
-<button type="button" onclick=clearurl()>Clear</button>
-<br><br>
+<div class="row">
+  <label for="url">URL:</label>
+  <input id="url" type="text" size="60">&nbsp;
+  <button type="button" onclick=clearurl()>Clear</button>
+</div>
+<br>
 
-<label for="text">Text:</label>
-<input id="text" type="text" size="60">&nbsp;
-<button type="button" onclick=cleartext()>Clear</button>
-<br><br>
+<div class="row">
+  <label for="text">Text:</label>
+  <input id="text" type="text" size="60">&nbsp;
+  <button type="button" onclick=cleartext()>Clear</button>
+</div>
+<br>
 
 <button type="button" onclick=makelink()>Make link</button><br><br>
 
-<label for="link">Link:</label>
-<input id="link" type="text" size="60" readonly>&nbsp;
-<button type="button" onclick=clearlink()>Clear</button>
-<br><br>
+<div class="row">
+  <label for="link">Link:</label>
+  <input id="link" type="text" size="60" readonly>&nbsp;
+  <button type="button" onclick=clearlink()>Clear</button>
+</div>
+<br>
 
 <button type="button" onclick=testlink()>Test</button>&nbsp;&nbsp;
 <button type="button" onclick=copy()>Copy to clipboard</button>
@@ -76,7 +88,7 @@
 <br><br>
 <p>If URL does not start <b>http</b> it will add <b>http://</b></p>
 
-<br><br><br><br>
-<p><small>v1.0.1 5.3.2023</small></p>
+<br><br><br>
+<p><small>v1.0.2 28.5.2023</small></p>
 </body>
 </html>
