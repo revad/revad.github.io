@@ -1,4 +1,5 @@
-// JavaScript source code
+// 24-11-23 Changed CSS - create two variants of buttonBox class
+
 var program = new Array();
 var userInMiddleOfTypingNumber = false;
 var isParenthesisNeededOnNextOperation = false;
@@ -308,9 +309,10 @@ function handleKeystrokes(event)
 
 }
 
-function drawButton(value)
+function drawButton(value, type)
 {
-    var htmlForButton = "<div class='buttonBox'><button data-value='" + value + "'>" + value + "</button></div>";
+    // second arg is 'Num' for numeric button or 'Ops' for operations button
+    var htmlForButton = "<div class='buttonBox" + type + "'><button data-value='" + value + "'>" + value + "</button></div>";
     return htmlForButton;
 }
 
@@ -320,7 +322,7 @@ $(document).ready(function () {
     //draw operation buttons
     var stringOfOperations = "/*-+";
     var buttonHTMLArray = jQuery.map(stringOfOperations, function (a) {
-        return drawButton(a);
+        return drawButton(a, 'Ops');
     });
     $("#operations").html(buttonHTMLArray.join(""));
     //apply event handler to operation buttons
@@ -329,9 +331,10 @@ $(document).ready(function () {
     })
 
     //draw numpad buttons
-    var stringOfNumpad = "7894561230.";
+    //blank button is underneath zero
+    var stringOfNumpad = "7894561230 .";
     buttonHTMLArray = jQuery.map(stringOfNumpad, function (a) {
-        return drawButton(a);
+        return drawButton(a, 'Num');
     });
     $("#numpad").html(buttonHTMLArray.join(""));
     //apply event handler to numpad buttons
