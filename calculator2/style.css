@@ -15,11 +15,7 @@ body
 }
 
 #calc {
-
-
-
 	background: white;
-
 	margin: 20px auto 0;
   touch-action: manipulation;
 }
@@ -49,7 +45,7 @@ body
 }
 
 #numpad {
-  width: 65%;
+  width: 60%;
 }
 
 #operations {
