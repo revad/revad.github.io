@@ -9,6 +9,7 @@ body
 #calc {
 	width: 100%;
 	max-width: 12cm;
+	box-sizing: border-box;
 	background: white;
 	padding: 20px;
 	margin: 20px auto 0;
