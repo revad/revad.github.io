@@ -12,6 +12,7 @@ body
 	box-sizing: border-box;
 	background: white;
 	padding: 20px;
+	padding: 40px;
 	margin: 20px auto 0;
   touch-action: manipulation;
 }
@@ -19,19 +20,19 @@ body
 #display, #descriptionDisplay {
 	background: white;
   width: 95%;
-  box-sizing:content-box;
+  box-sizing: content-box;
   text-align: right;
   cursor: none;
-  overflow: hidden;
 	border: 0;	
 	color: #1869EC;
-	padding-bottom: 20px;		
+	padding: 0 0 20px;		
 }
 
 #display {
   height: 42pt;
   line-height: 42pt;
   font-size: 42pt;
+  overflow: hidden;
 }
 
 #descriptionDisplay {
@@ -86,7 +87,7 @@ button {
 	font-size: 20pt;
 	background: #A0C4FF;
 	color: white;
-  box-sizing:content-box;
+  box-sizing: content-box;
 }
 
 button:hover {
