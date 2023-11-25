@@ -1,4 +1,12 @@
 /* 24-11-23 Changed to use %age sizes */
+/* 25-11-23 Fix box sizing for iOS, make it occupy 100% of width on mobile */
+
+/* Not a mobile */
+@media (any-hover: hover) {
+  #calc {
+    max-width: 12cm;
+  } 
+}
 
 body
 {
@@ -8,7 +16,7 @@ body
 
 #calc {
 	width: 100%;
-	max-width: 12cm;
+
 	box-sizing: border-box;
 	background: white;
 	padding: 20px;
