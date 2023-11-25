@@ -1,4 +1,12 @@
 /* 24-11-23 Changed to use %age sizes */
+/* 25-11-23 Fix box sizing for iOS, make it occupy 100% of width on mobile */
+
+/* Not a mobile */
+@media (any-hover: hover) {
+  #calc {
+    max-width: 12cm;
+  } 
+}
 
 body
 {
@@ -7,10 +15,7 @@ body
 }
 
 #calc {
-	width: 100%;
-	max-width: 12cm;
 	background: white;
-	padding: 20px;
 	margin: 20px auto 0;
   touch-action: manipulation;
 }
@@ -18,18 +23,19 @@ body
 #display, #descriptionDisplay {
 	background: white;
   width: 95%;
+  box-sizing: content-box;
   text-align: right;
   cursor: none;
-  overflow: hidden;  
 	border: 0;	
 	color: #1869EC;
-	padding-bottom: 20px;		
+	padding: 0 0 20px;		
 }
 
 #display {
   height: 42pt;
   line-height: 42pt;
   font-size: 42pt;
+  overflow: hidden;
 }
 
 #descriptionDisplay {
@@ -84,7 +90,7 @@ button {
 	font-size: 20pt;
 	background: #A0C4FF;
 	color: white;
-  box-sizing:content-box;
+  box-sizing: content-box;
 }
 
 button:hover {
@@ -97,7 +103,7 @@ button:hover {
 
 #numpad button {
 	background: #518EF0;
-  border-color: #518EF0;  
+  border-color: #518EF0;
 }
 
 #numpad button:hover {
@@ -106,12 +112,12 @@ button:hover {
 
 button[data-value='0'] {
   width: 195%;
-  aspect-ratio: 2.15 / 1;  
+  aspect-ratio: 2.15 / 1;
 }
 
 /* Invisible button behind zero */
 button[data-value=' '] {
-  display: none;  
+  display: none;
 }
 
 button:active {
@@ -122,14 +128,14 @@ button:active {
 
 button[data-value='0']:active {
   width:190%;
-  aspect-ratio: 1 / 1;  
+  aspect-ratio: 1 / 1;
 }
 
 #equalButton {
   height: 217%;
   aspect-ratio: 1 / 2.17; 
 	background: #518EF0;
-  border-color: #518EF0;  
+  border-color: #518EF0;
 }
 
 #equalButton:hover {
@@ -138,4 +144,9 @@ button[data-value='0']:active {
 
 #equalButton:active {
   height: 190%;
+}
+
+.appInfo {
+  color: gray;
+  font-size:12px;
 }
