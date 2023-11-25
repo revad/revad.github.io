@@ -1,0 +1,147 @@
+/* 24-11-23 Changed to use %age sizes */
+
+body
+{
+  font-family: sans-serif;
+	background:#EAEAEA;
+}
+
+#calc {
+	width: 100%;
+	max-width: 12cm;
+	background: white;
+	padding: 20px;
+	margin: 20px auto 0;
+  touch-action: manipulation;
+}
+
+#display, #descriptionDisplay {
+	background: white;
+  width: 95%;
+  box-sizing:content-box;
+  text-align: right;
+  cursor: none;
+  overflow: hidden;
+	border: 0;	
+	color: #1869EC;
+	padding-bottom: 20px;		
+}
+
+#display {
+  height: 42pt;
+  line-height: 42pt;
+  font-size: 42pt;
+}
+
+#descriptionDisplay {
+  height: 11pt;
+  line-height:11pt;
+  font-size:11pt;
+}
+
+#numpad {
+  width: 60%;
+}
+
+#operations {
+  width: 20%;
+}
+
+#otherOperations {
+  width: 20%;
+}
+
+.fixFloat {
+	clear: both;
+}
+
+.dockLeft {
+  float: left;
+}
+
+.dockRight {
+  float: left;
+  width: 20%;
+}
+
+.buttonBoxNum {
+  display: inline-block;
+  width: 31%;
+  margin: 0 5px 5px 0;
+}
+
+.buttonBoxOps {
+  display: inline-block;
+  width: 93%;
+  margin: 0 5px 5px 0;
+}
+
+button {
+  width: 90%;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  padding: 0;
+	border: 4px solid #A0C4FF;
+	font-size: 20pt;
+	background: #A0C4FF;
+	color: white;
+  box-sizing:content-box;
+}
+
+button:hover {
+  border-color: #C1D9FF;
+}
+
+#operations button {
+	font-size: 30pt;
+}
+
+#numpad button {
+	background: #518EF0;
+  border-color: #518EF0;
+}
+
+#numpad button:hover {
+	border-color: #7FACF4;
+}
+
+button[data-value='0'] {
+  width: 195%;
+  aspect-ratio: 2.15 / 1;
+}
+
+/* Invisible button behind zero */
+button[data-value=' '] {
+  display: none;
+}
+
+button:active {
+  width:90%;
+  aspect-ratio: 1 / 1;
+  margin:2px;
+}
+
+button[data-value='0']:active {
+  width:190%;
+  aspect-ratio: 1 / 1;
+}
+
+#equalButton {
+  height: 217%;
+  aspect-ratio: 1 / 2.17; 
+	background: #518EF0;
+  border-color: #518EF0;
+}
+
+#equalButton:hover {
+  border-color: #7FACF4;
+}
+
+#equalButton:active {
+  height: 190%;
+}
+
+.appInfo {
+  color: gray;
+  font-size:12px;
+}

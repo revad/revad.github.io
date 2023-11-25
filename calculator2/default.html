@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <meta charset="utf-8" />
+    <title>Offline Calculator</title>
+    <link href="offline_Calculator.ico" rel="shortcut icon" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  
+    <script src="jquery-1.6.2.min.js" type="text/javascript"></script>
+    <script src="script.js" type="text/javascript"></script>
+</head>
+<body>
+	<div id="calc">
+    <input id="descriptionDisplay" readonly="true" />
+    <input type="text" readonly="true" id="display" />
+
+    <div id="numpad" class="dockLeft"></div>
+    <div id="operations" class="dockLeft"></div>
+
+    <div id="otherOperations" class="dockRight">
+        <div class="buttonBoxOps"><button id="clearButton" data-value="clear">C</button></div>
+        <div class="buttonBoxOps"><button id="allClearButton" data-value="allClear">AC</button></div>
+        <div class="buttonBoxOps"><button id="equalButton" data-value="=">=</button></div>
+    </div>
+
+	<br class="fixFloat" />
+	<p class="appInfo">V1</p>
+	</div>
+
+<!--  Register service worker for offline operation -->
+<script>
+if('serviceWorker' in navigator) {
+  let registration;
+  const registerServiceWorker = async () => {
+    registration = await  navigator.serviceWorker.register('./service-worker.js');
+  };
+  registerServiceWorker();
+}
+</script>
+
+</body>
+</html>
