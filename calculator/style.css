@@ -1,5 +1,4 @@
-/* 24-11-23 Changed to use %age sizes */
-/* 25-11-23 Fix box sizing for iOS, make it occupy 100% of width on mobile */
+/* 28-11-23 Responsive layout grid version */
 
 /* Not a mobile */
 @media (any-hover: hover) {
@@ -11,24 +10,58 @@
 body
 {
   font-family: sans-serif;
-	background:#EAEAEA;
+  background:#EAEAEA;
 }
 
 #calc {
-	background: white;
-	margin: 20px auto 0;
+  background: white;
+  margin: 3% auto 0;
   touch-action: manipulation;
 }
 
+#grid {
+  display: grid;
+  grid-template-areas:
+    "a a a a a"
+    "b b b b b"
+    "c d e n r"
+    "f g h o s"
+    "i j k p t"
+    "l l m q t"
+    "u u u u u" ;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr) ;
+}
+
+#descriptionDisplay { grid-area: a; }
+#display { grid-area: b; }
+#bc7 { grid-area: c; }
+#bc8 { grid-area: d; }
+#bc9 { grid-area: e; }
+#bc4 { grid-area: f; }
+#bc5 { grid-area: g; }
+#bc6 { grid-area: h; }
+#bc1 { grid-area: i; }
+#bc2 { grid-area: j; }
+#bc3 { grid-area: k; }
+#bc0 { grid-area: l; }
+#bcPoint { grid-area: m; }
+#bcDivide { grid-area: n; }
+#bcMultiply { grid-area: o; }
+#bcMinus { grid-area: p; }
+#bcPlus { grid-area: q; }
+#bcClearButton { grid-area: r; }
+#bcAllClearButton { grid-area: s; }
+#bcEqualButton { grid-area: t; }
+#appInfo { grid-area: u; }
+
+
 #display, #descriptionDisplay {
-	background: white;
-  width: 95%;
-  box-sizing: content-box;
   text-align: right;
   cursor: none;
-	border: 0;	
-	color: #1869EC;
-	padding: 0 0 20px;		
+  color: #1869EC;
+  padding: 0 0 20px;
+  border: 0;
 }
 
 #display {
@@ -44,109 +77,76 @@ body
   font-size:11pt;
 }
 
-#numpad {
-  width: 60%;
-}
-
-#operations {
-  width: 20%;
-}
-
-#otherOperations {
-  width: 20%;
-}
-
-.fixFloat {
-	clear: both;
-}
-
-.dockLeft {
-  float: left;
-}
-
-.dockRight {
-  float: left;
-  width: 20%;
-}
-
-.buttonBoxNum {
-  display: inline-block;
-  width: 31%;
-  margin: 0 5px 5px 0;
-}
-
-.buttonBoxOps {
-  display: inline-block;
-  width: 93%;
-  margin: 0 5px 5px 0;
-}
-
 button {
-  width: 90%;
-  aspect-ratio: 1 / 1;
-  margin: 0;
-  padding: 0;
-	border: 4px solid #A0C4FF;
-	font-size: 20pt;
-	background: #A0C4FF;
-	color: white;
-  box-sizing: content-box;
+  font-size: 20pt;
+  padding: 20% 38%;
+  color: white;
+  border: 1px solid #A0C4FF;
 }
+
+/* All this is to fit buttons, which have intrinsic sizes depending on content, as close as possible to the grid  */
+/* Could not find a way of making them fill containers */
+
+.buttonZero {
+  padding: 10% 44%;
+}
+
+.buttonPoint {
+  padding: 20% 43%;
+}
+
+.buttonDivide {
+  padding: 20% 40%;
+}
+
+.buttonMultiply {
+  padding: 20% 37%;
+}
+
+.buttonMinus {
+  padding: 20% 40%;
+}
+
+.buttonPlus {
+  padding: 20% 37%;
+}
+
+.buttonClear {
+  padding: 20% 37%;
+}
+
+.buttonAllClear {
+  padding: 20% 27%;
+}
+
+.buttonEquals {
+  padding: 64% 36%;
+  background: #518EF0;
+}
+
+.opsButton {
+  font-size: 20pt;
+  background: #A0C4FF;  
+}
+
+.numButton {
+  font-size: 20pt;
+  background: #518EF0; 
+} 
 
 button:hover {
-  border-color: #C1D9FF;
-}
-
-#operations button {
-	font-size: 30pt;
-}
-
-#numpad button {
-	background: #518EF0;
-  border-color: #518EF0;
-}
-
-#numpad button:hover {
-	border-color: #7FACF4;
-}
-
-button[data-value='0'] {
-  width: 195%;
-  aspect-ratio: 2.15 / 1;
-}
-
-/* Invisible button behind zero */
-button[data-value=' '] {
-  display: none;
-}
-
-button:active {
-  width:90%;
-  aspect-ratio: 1 / 1;
-  margin:2px;
-}
-
-button[data-value='0']:active {
-  width:190%;
-  aspect-ratio: 1 / 1;
-}
-
-#equalButton {
-  height: 217%;
-  aspect-ratio: 1 / 2.17; 
-	background: #518EF0;
-  border-color: #518EF0;
-}
-
-#equalButton:hover {
-  border-color: #7FACF4;
-}
-
-#equalButton:active {
-  height: 190%;
+  background: #1869EC;
 }
 
 .appInfo {
   color: gray;
   font-size:12px;
+  text-align: left;
 }
+
+
+
+
+
+
+
