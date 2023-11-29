@@ -6,7 +6,7 @@ const cacheName = 'offline_calculator';
 
 // put the static assets and routes you want to cache here
 const filesToCache = [
-  'default.html',
+  'index.html',
   'script.js',  
   'jquery-1.6.2.min.js',  
   'style.css',  
