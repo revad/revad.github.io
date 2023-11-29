@@ -81,13 +81,13 @@
     </div> 
     
     <div id="appInfo">
-      <p class="appInfo">Offline Calculaor v3 29-11-23</p>
+      <p class="appInfo">Offline Calculaor v2 29-11-23</p>
     </div>
     
   </div>
 
 <!--  Register service worker for offline operation -->
-<!-- 
+<!--  Note - have to clear serviceworker and browser cache manually if updating app -->
 <script>
 if('serviceWorker' in navigator) {
   let registration;
@@ -97,6 +97,6 @@ if('serviceWorker' in navigator) {
   registerServiceWorker();
 }
 </script>
--->
+
 </body>
 </html>
