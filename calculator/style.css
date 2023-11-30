@@ -1,10 +1,14 @@
-/* 28-11-23 Responsive layout grid version */
+/* 30-11-23 Responsive layout grid version */
 
 /* Not a mobile */
 @media (any-hover: hover) {
   #calc {
     max-width: 12cm;
   } 
+
+button:hover {
+  background: #1869EC;
+  }
 }
 
 body
@@ -14,6 +18,7 @@ body
 }
 
 #calc {
+  max-width: 12cm ;
   display: grid;
   grid-template-areas:
     "w"    
@@ -62,7 +67,7 @@ body
     "l l m q t";
   grid-template-rows: repeat(4, 1fr);
   grid-template-columns: repeat(5, 1fr) ; 
-  aspect-ratio: 1 / 1 ;
+  aspect-ratio: 1 / 0.8 ;
 }
 
 #bc7 { grid-area: c; }
@@ -90,7 +95,7 @@ body
   display: flex;
   justify-content: center; 
   align-items: center;  
-  margin: 2px ;
+  margin: 2px ;  
 }
 
 button {
@@ -115,8 +120,8 @@ button {
   background: #518EF0;
 }
 
-button:hover {
-  background: #1869EC;
+button:active {
+  background: #71a3f4;
 }
 
 .appInfo {
