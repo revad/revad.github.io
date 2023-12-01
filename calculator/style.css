@@ -102,7 +102,7 @@ button {
   padding: 20% 38%;
   color: white;
   border: 1px solid #A0C4FF;
-  padding: 200% ; /* bigger than container - overflow hidden  */
+  padding: 80% ; /* bigger than container - overflow hidden  */
 }
 
 .numButton {
