@@ -10,7 +10,8 @@ const filesToCache = [
   'script.js',  
   'jquery-1.6.2.min.js',  
   'style.css',  
-  'offline_Calculator.ico'  
+  'offline_Calculator.ico',
+  'apple-touch-icon.png'
 ];
 
 // the event handler for the activate event
