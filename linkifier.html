@@ -9,53 +9,6 @@
     }
   </style>
 
-<script>
-  function clearurl() {
-    document.getElementById('url').value = "" ;
-    document.getElementById('link').value = "" ;
-  }
-
-  function cleartext() {
-    document.getElementById('text').value = "" ;
-    document.getElementById('link').value = "" ;
-  }
-
-  function clearlink() {
-    document.getElementById('link').value = "" ;
-  }
-
-  function makelink() {
-    linktext = document.getElementById('text').value ; 
-    if (linktext == "") {
-      linktext = document.getElementById('url').value  ;
-    }  
-      
-    href = document.getElementById('url').value ;       
-    if (href.substring(0,4) != "http") {
-    	href = "http://" + href ;
-    }   
-    document.getElementById('link').value = '<a href="' + href + '">' + linktext + '</a>';
-  }
-
-  function testlink() {
-    if (document.getElementById('link').value != "") { 
-      window.open(href) ;
-    }     
-  }
-
-  function copy() {
-    if (document.getElementById('link').value != "") {
-      navigator.clipboard.writeText(document.getElementById('link').value).then(function() {
-    /* clipboard successfully set */
-        }, function() {
-    /* clipboard write failed */
-      console.log("Clipboard write failed: " + href ) ; 
-      });
-    }
-  }
-  
-</script>
-
 </head>
 <body>
 
@@ -86,9 +39,89 @@
 <button type="button" onclick=copy()>Copy to clipboard</button>
 
 <br><br>
-<p>If URL does not start <b>http</b> it will add <b>http://</b></p>
+<p>If URL does not start <b>http</b> it will add <b>https://</b></p>
 
-<br><br><br>
-<p><small>v1.0.2 28.5.2023</small></p>
+<div id="fragmentDirectiveText">
+  <p><span style="color:red">The URL contains a fragment directive. Probably it includes text to highlight.</span><br>
+  Due to browser security policies this cannot be tested using the Test button - it requires a user click.<br>
+  To test it, open the link below in a new tab.</p>
+  <p id="fragmentDirectiveLink"></p>
+  <p>Note that not all browsers will scroll to or highlight the text.</p>  
+</div>
+
+<br>
+<p><small>v1.1.0 10.01.2024</small></p>
 </body>
 </html>
+
+<script>
+
+  const fragmentDirective = new RegExp('#.*:~:') ;
+  document.getElementById('fragmentDirectiveText').style.visibility = "hidden" ;
+
+  function clearurl() {
+    document.getElementById('url').value = "" ;
+    document.getElementById('link').value = "" ;
+  
+    document.getElementById('fragmentDirectiveText').style.visibility = "hidden" ; 
+  }
+
+  function cleartext() {
+    document.getElementById('text').value = "" ;
+    document.getElementById('link').value = "" ;
+  }
+
+  function clearlink() {
+    document.getElementById('link').value = "" ;
+
+    document.getElementById('fragmentDirectiveText').style.visibility = "hidden" ;
+  }
+
+  function makelink() {
+    linktext = document.getElementById('text').value ; 
+    if (linktext == "") {
+      linktext = document.getElementById('url').value  ;
+    }  
+      
+    href = document.getElementById('url').value ;       
+    if (href.substring(0,4) != "http") {
+    	href = "https://" + href ;
+    }   
+    linkHTML = '<a href="' + href + '">' + linktext + '</a>' ;   
+    document.getElementById('link').value = linkHTML ;
+
+    if (fragmentDirective.test(href)) {
+      document.getElementById('fragmentDirectiveLink').textContent = '' ;
+      document.getElementById('fragmentDirectiveLink').insertAdjacentHTML("afterbegin", linkHTML)
+      document.getElementById('fragmentDirectiveText').style.visibility = "visible" ;
+    } else {
+    	document.getElementById('fragmentDirectiveText').style.visibility = "hidden" ;
+    }
+    
+  }
+
+  function testlink() {
+    if (document.getElementById('link').value != "") {
+
+      if (!fragmentDirective.test(href)) {
+        try {
+          window.open(href) ;
+        } catch (error) {
+          alert("Error: the URL entered is invalid.\nProbably it includes illegal characters.")
+        }  
+      }
+    }     
+  }
+
+  function copy() {
+    if (document.getElementById('link').value != "") {
+      navigator.clipboard.writeText(document.getElementById('link').value).then(function() {
+    /* clipboard successfully set */
+        }, function() {
+    /* clipboard write failed */
+      console.log("Clipboard write failed: " + href ) ; 
+      });
+    }
+  }
+  
+</script>
