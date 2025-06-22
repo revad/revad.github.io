@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Test 1</title>
+<title>Display Viewport Width</title>
 
-  <style>
-
-
+<style>
 
 @media(max-width: 781px) {
    .text {
@@ -15,20 +13,27 @@
 
 .text {
      color: blue ;
-   }
+ }
 
-  </style>
+</style>
 
 </head>
 <body>
 
-<p class='text'>Text</p>
+<p class='text'><b>Viewport width:</b></p>
+<p id='width'></p>
 
 </body>
 </html>
 
 <script>
 
+document.getElementById('width').textContent = window.visualViewport.width ;
 
+function changeSize() {
+    document.getElementById('width').textContent = window.visualViewport.width ;
+}
+
+window.addEventListener("resize", changeSize);
   
 </script>
